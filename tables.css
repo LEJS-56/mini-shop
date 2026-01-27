@@ -1,0 +1,20 @@
+:root{
+	--bg:#0a1428;
+	--ca:#0026FF;
+	--cb:#EB150D;
+	--cc: rgba(128, 128, 128, 0.361);
+}
+td{
+	border-bottom:solid 2px skyblue;
+}
+.table-body:nth-of-type(even){
+    background-color: var(--cc);
+    border-collapse: collapse;
+}
+.tab{
+    background-color:var(--ca);
+}
+
+.table-body:nth-last-child{
+    border-bottom: solid 2px gray;
+}
