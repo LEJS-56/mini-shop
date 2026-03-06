@@ -2,10 +2,10 @@
  //~ mysqli procedural Test (C'est un échec)
  session_start();
  
- $server="localhost";
- $usernam="php";
- $password = "21DWBM5ozO]QPdRi";
- $dbname = "shop";
+ $server="sql300.infinityfree.com ";
+ $usernam="if0_40883908";
+ $password = "uXnbDFugQjy";
+ $dbname = "if0_40883908_shop";
  include ("include.php");
  //~ $conn=mysqli_connect($server,$usernam,$password,$dbname);
  //~ if(!$conn){
@@ -51,10 +51,8 @@
  //~ Fermeture de la connection
  $conn = null;
  include_once("charge.html");
- $direct = "refresh:1;achats.php?vp=".$_POST['vp'];
- header($direct);
- /*echo "<script>setTimeout(()=>{
+ echo "<script>setTimeout(()=>{
  history.back();
 },1500);
-</script>";*/
+</script>";
 ?>

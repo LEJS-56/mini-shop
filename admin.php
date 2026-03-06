@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>section de l'Administration</title>
+		<title>section Administration</title>
 		<meta charset="utf-8">
 	</head>
 	<body>
@@ -37,6 +37,6 @@
 					</div>
 			</form>
 		</section>
-		
+		<div class="spacerb" style="height:160vh;"></div>
 	</body>
 </html>

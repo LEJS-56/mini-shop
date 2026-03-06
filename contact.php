@@ -26,5 +26,6 @@
 		<form method=POST action=env.php style="position:absolute;bottom:0;left:30%;">
 			<textarea required style="width:400px;min-height:100px;" name=msg></textarea><br><?php if($_SESSION['ID']){?><input type=submit name=envoi value=envoyer style="border-radius:99px;width:100%;height:30px;background-color:#0026FF;color:white;"><?php }else{ ?><b><a href=connexion.php style="border-radius:99px;width:100%;height:30px;background-color:#0026FF;color:white;text-align:center;justify-content:center;align-items:center;">Connectez-vous</a></b><?php }?>
 		</form>
+		<div class="spacerb" style="height:30vh;"></div>
 	</body>
 </html>

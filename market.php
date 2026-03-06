@@ -34,6 +34,6 @@
 					</div>
 			</form>
 		</section>
-		
+		<?php include "space.php"; ?>
 	</body>
 </html>

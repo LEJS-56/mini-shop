@@ -27,5 +27,6 @@
 		<?php echo "<input type=hidden name=recep value=".$_GET['convers'].">"; ?>	
         <textarea placeholder="Votre message" required style="width:100%;min-height:100px;text-align:center" name=msg></textarea><br><?php if($_SESSION['ID']){?><input type=submit name=envoi value=envoyer style="border-radius:99px;width:100%;height:30px;background-color:#0026FF;color:white;"><?php }else{ ?><b><a href=connexion.php style="border-radius:99px;width:100%;height:30px;background-color:#0026FF;color:white;text-align:center;justify-content:center;align-items:center;">Connectez-vous</a></b><?php }?>
 		</form>
+		<div class="spacerb" style="height:45vh;"></div>
 	</body>
 </html>

@@ -11,6 +11,19 @@
 	50%{opacity:0;}
 	100%{opacity:1;}
 }
+
+
+/*
+Style des inputs
+*/
+input,textarea{
+    border:none;
+    border-bottom: solid 2px var(--ca);
+    margin-top:1.6rem;
+    border-radius: 1.4rem;
+}
+
+
 /*
 En-Tête
 */
@@ -437,33 +450,32 @@ a:hover{
 Responsivit�
 */
 @media (max-width:1000px){
-	
-
+  
 	/* Menu de pied de page */
-	.menu-bas{
-		display: initial;
-		background-color: #00000057;
-		position: fixed;
-		bottom: 1%;
-		z-index: 2;
-		left: 1%;
-		right: 1%;
-		border-radius: 4rem;
-		padding-left: 10%;
-		padding-right: 10%;
-	}
-	.menu-bas a{
-		text-decoration: none;
-		color: var(--cd);
-	}
-	.menu-bas ul{
-		list-style: none;
-		display: flex;
-		justify-content: space-around;
-	}
-	.menu-bas i{
-		font-size: 6vh;
-	}
+.menu-bas{
+    display:initial;
+	background-color: #00000057;
+	position: fixed;
+	bottom: 1%;
+	z-index: 2;
+	left: 1%;
+	right: 1%;
+	border-radius: 4rem;
+	padding-left: 10%;
+	padding-right: 10%;
+}
+.menu-bas a{
+	text-decoration: none;
+	color: var(--cd);
+}
+.menu-bas ul{
+	list-style: none;
+	display: flex;
+	justify-content: space-around;
+}
+.menu-bas i{
+	font-size: 6vh;
+}
 
 
 	header{
