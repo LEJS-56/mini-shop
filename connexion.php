@@ -6,7 +6,12 @@
 		<link rel=stylesheet href=style.css>
 	</head>
 	<body class=body>
-		<div class=bga></div>
+	<div class="logo conlogo">
+		<h1><span>BLUE </span>Market</h1>
+	</div>
+		<!-- Le fancy border radius
+		<div class=bga><br><br><br><br><br><br><br><br><br><h1 style=color:white>Blue Market</h1></div>
+		-->
 		<div class=con-container>
 			<form method=POST action=conn.php>
 				<h1>Connexion</h1>
@@ -30,7 +35,7 @@
 					<a href="#">Mot de passe</a>
 				</div>
 -->
-				<button type=submit name=ok>Se connecter</button>
+				<button type=submit name=ok style="border-radius:1.1rem">Se connecter</button>
 				<div class=register>
 					<center>
 						<p>

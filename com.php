@@ -8,17 +8,17 @@
 				<?php include("includea.php"); ?>
 				<?php
 					include("del.php");
-					$sql = "SELECT * FROM vente, Client, produit WHERE vente.IDC=Client.IDC AND vente.id=produit.ID;";
+					$sql = "SELECT * FROM livraison, Client, produit WHERE livraison.idclt=Client.IDC AND livraison.idclt=produit.ID;";
 					$result = $conn->query($sql);
 					if ($result->num_rows > 0) {
 					 while($row = $result->fetch_assoc()) {
-						echo"<tr><td>".$row['NOMC']."</td><td>".$row['NOM']."</td><td><b>".$row['PRIX']." FCFA</b></td><td>".$row['DATEV']."</td>";
-							if ($row['DATEL']=="0000-00-00"){
-								echo "<td style='color:red'><button value=".$row['IDV']." name=cachat style='block; border:none; background:none; cursor:pointer; color:skyblue;'>Confirmer l'achat</button></td>";
+						echo"<tr><td>".$row['NOMC']."</td><td>".$row['NOM']."</td><td><b>".$row['PRIX']." FCFA</b></td><td>".$row['datedeb']."</td>";
+							if ($row['datefin']=="0000-00-00"){
+								echo "<td style='color:red'><button value=".$row['idliv']." name=cachat style='block; border:none; background:none; cursor:pointer; color:skyblue;'>Confirmer l'achat</button></td>";
 							}else{
-								echo "<td>".$row['DATEL']."</td>";
+								echo "<td>".$row['datefin']."</td>";
 							}
-							if ($row['DATEL']=="0000-00-00"){
+							if ($row['datefin']=="0000-00-00"){
 								echo "<td>Achat non éffectué</td></tr>";
 							}else{
 								echo "<td><button name=factg style='block; border:none; background:none; cursor:pointer; color:skyblue;'>Générer</button></td></tr>";

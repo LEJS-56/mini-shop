@@ -51,8 +51,10 @@
  //~ Fermeture de la connection
  $conn = null;
  include_once("charge.html");
- echo "<script>setTimeout(()=>{
+ $direct = "refresh:1;achats.php?vp=".$_POST['vp'];
+ header($direct);
+ /*echo "<script>setTimeout(()=>{
  history.back();
 },1500);
-</script>";
+</script>";*/
 ?>

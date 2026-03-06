@@ -8,7 +8,11 @@
 		<section class=produits>
 			<div class=tete>
 				<h1>Partie administrateur</h1>
-				<p>Vous êtes admistrateur et toute action s'offre à vous<br><a href="ajouter.php"> Ajouter un produit</a>  <a href=sup.php>  Supprimer un produit</a>  <a href=com.php>  Liste des commandes</a></p>
+				<p>Vous êtes admistrateur et toute action s'offre à vous<br><a href="ajouter.php"> Ajouter un produit</a>  <a href=sup.php>  Supprimer un produit</a> <!-- Suprimmer n'est plus utile mais je laisse juste pour le fun --> 
+<!--
+				<a href=com.php>  Liste des commandes</a>
+-->
+				</p>
 			</div>
 			<form method=GET action=mod.php>
 				<div class=liste>

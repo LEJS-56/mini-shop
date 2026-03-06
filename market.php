@@ -8,8 +8,6 @@
 		<section class=produits>
 			<div class=tete>
 				<h1>Explorez nos produits et faites des achats</h1>
-				<p>La liste complète de nos produits sont conposées de produits de meilleur qualité au meilleur pris et avec un service de livraison impécable</p>
-				<p>Vous pouvez également consulter votre <a href="panier.php">Historique d'achats</a></p>
 			</div>
 			<form method=GET action=achats.php>
 				<div class=liste>
@@ -18,6 +16,8 @@
 						 	$result = $conn->query($sql);
 						 	if ($result->num_rows > 0) {
 						 	 while($row = $result->fetch_assoc()) {
+								// Azy j'ai trop la flemme de commenter le code du coup seul le index.php qui est la première page que j'ai fait qui aura un semblant de commentaire.
+								// Bonne chance frère
 						 	  echo "
 						 	  <div class=produit>
 						 	  <img class=vu src='prod/".$row["IMG"]."'>

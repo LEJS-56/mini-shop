@@ -21,7 +21,7 @@
 	</head>
 	<body>
 		<?php require "include.php";?>
-		<form method=POST name=fo action=buy.php style="border:solid 10px skyblue; border-radius:90px;">
+		<form method=POST name=fo action=buy.php style="border:solid 10px skyblue; border-radius:1.5rem;border-bottom:none">
 			<div class=liste style=display:inline-block><br><br>
 				<center>
 					<?php
@@ -30,7 +30,7 @@
 						if ($result->num_rows > 0) {
 							while($row = $result->fetch_assoc()) {
 								echo "<input type=hidden name=AQTE value='".$row['QTE']."'>
-								<div class=elem style=display:inline-table><img class=vu src='prod/".$row["IMG"]."' style='height:50%; border-radius:20px;'><h2>".$row["NOM"]."</h2><h1 style=color:blue;><b><span>".$row["PRIX"]." FCFA</span></b></div><div class=elem style=display:inline-block><table border=2 style='border-collapse:collapse; padding:10px'>
+									<div class='elem image-cover' style=display:inline-block><img class=vu src='prod/".$row["IMG"]."' style='height:50%; border-radius:20px;'><h2>".$row["NOM"]."</h2><h1 style=color:blue;><b><span>".$row["PRIX"]." FCFA</span></b></div><div class=elem style=display:inline-block><table border=2 style='border-collapse:collapse; padding:10px'>
 									<tr><td colspan=2 style=text-align:center><b>Spécifications</b></td></tr>
 									<tr><td>Marque</td><td>".$row['MARQ']."</td></tr>
 									<tr><td>Modèle</td><td>".$row['Modele']."</td></tr>
@@ -48,7 +48,7 @@
 									<tr><td>Caractéristiques requises</td><td>".$row['Caracteristiques_requises']."</td></tr>
 									<tr><td>Composant(s) inclus</td><td>".$row['Composant_inclus']."</td></tr>
 									<tr><td>Conectiques</td><td>".$row['Conectiques']."</td></tr>
-									<tr><td>réparabilité</td><td>".$row['reparabilite']."</td></tr>									
+									<tr><td>réparabilité</td><td>".$row['reparabilite']."</td></tr>
 								</table></div><div class=elem style=display:inline-block><br><br></h1><h1><u>Description:</u></h1><span style=font-size:15px>".$row["Description"]."</span></div><br><br><div class=elem style=display:inline-block><h1>À propos de ce produit</h1><span class=propos style=font-size:15px>".$row['Apropos']."</span></div><br><br><u style=text-align:center><h3>Entrez Votre numéro de télephone Avant L'achat ou la commande :</h3></u><br><br><input type=number value=".$user['TEL']." name=ntel style=text-align:center; required><br>";
 							//~ <tr><td>Usage recommandé</td><td>".$row['Usages_recommandes']."</td></tr>
 							if ($_SESSION['ID']){

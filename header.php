@@ -19,7 +19,7 @@
 					$rs=$conn->query($liva);
 					$livai = $rs->fetch_row();
 					if ($livai[0]>0){
-						echo "<marquee style='background-color:red;font-size:2.5rem;border-radius:30rem 0'><a href=liv.php>DES LIVRAISONS SONT DISPONIBLES</a></marquee>";
+						echo "<br><a class=notif href=liv.php>LIVRAISONS DISPONIBLES</a>";
 					}
 					echo "<br><a href=liv.php> Livraisons </a>";
 				}
@@ -27,24 +27,20 @@
 				echo "Non connecté <a href=connexion.php> Connectez-vous</a>";
 			}
 			if ($livrai[0]>0){
-			echo "<marquee style='background-color:red;font-size:2.5rem;border-radius:30rem 0'><a href=panier.php>VOUS AVEZ UNE LIVRAISON EN COURS</a></marquee>";
+			echo "<br><a class=notif href=panier.php>LIVRAISON EN COURS</a>";
 		}
 		?>
 	</div>
 	<div class=menu>
 		<ul class=menu_list>
-			<li><a href="index.php#Accueil">Accueil</a></li>
-			<li><a href="index.php#APropos">services</a></li>
-			<li><a href="contact.php">contactez-nous</a></li>
+			<li><a href="index.php" class=tela>Accueil</a></li>
+			<li><a href="panier.php" class=tela>Achats</a></li>
+			<li><a href=market.php class=tel>MarketPlace</a></li>
+			<li><a href="contact.php" class=tela>contactez-nous</a></li>
 		</ul>
-		<div style="box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);" class=tel>
-			<b><span><a style="text-decoration:none; color:#fff;" href=market.php>Marketplace</a></span></b>
-		</div>
-		<?php
-		
-	?>
 	</div>
 </header>
+<div class=spacer></div>
 <script>
 	 var menu_toggle = document.querySelector('.menu-responsif');
         var menu =  document.querySelector('.menu_list')

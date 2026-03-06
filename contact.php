@@ -2,7 +2,7 @@
 	<head><title>Mesage</title></head>
 	<body>
 		<?php include("include.php"); ?>
-		<table align=center style="display:flex; justify-content:center; max-height:500px; overflow:auto">
+		<table class=conver align=center style="display:flex; justify-content:center;">
 			<?php
 			if ($_SESSION['ID']){
 				$sql="SELECT * FROM msg WHERE IDC=".$_SESSION["ID"];

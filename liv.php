@@ -8,7 +8,7 @@
 <body>
     <?php include("include.php"); ?>
     <form method=POST action=conver.php>
-			<table border=2 align=center style="margin-top:20px; display:flex; justify-content:center; text-align:center; border-collapse:collapse; border:solid 3px skyblue;">
+			<table border=2 align=center class=conver style="margin-top:20px; display:flex; justify-content:center; text-align:center; border-collapse:collapse; border:solid 3px skyblue;">
 				<tr><td style=padding:20px>numero</td><td style=padding:20px>Date de commande</td><td style=padding:20px>Date de reception</td><td style=padding:20px>Nom du client</td><td style=padding:20px>Numero de Telephone</td><td style=padding:20px>Lieux de rencontre</td><td style=padding:20px>Affiliation</td></tr>
 				<?php
 					$sql = "SELECT * FROM livraison,Client WHERE `livraison`.idclt=`Client`.`IDC`";

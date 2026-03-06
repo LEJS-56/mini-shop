@@ -2,7 +2,7 @@
 	<head><title>Mesage</title></head>
 	<body>
 		<?php include("includea.php"); ?>
-		<table align=center style="display:flex; justify-content:center; max-height:500px; overflow:auto">
+		<table class=conver align=center style="display:flex; justify-content:center;">
 			<?php
 				$sql="SELECT msg.recep, msg.Cont, Client.NOMC FROM msg, Client WHERE Client.IDC=msg.IDC AND Client.IDC=".$_POST["client"];
 				$result = $conn->query($sql);

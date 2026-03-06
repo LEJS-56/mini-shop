@@ -132,9 +132,10 @@ if ($conn->query($sql) === TRUE) {
 }
 $conn->close();
 include_once("charge.html");
- echo "<script>setTimeout(()=>{
+header("refresh:1;ajouter.php");
+/* echo "<script>setTimeout(()=>{
  history.back();
 },1500);
-</script>";
+</script>"; */
 ?>
  

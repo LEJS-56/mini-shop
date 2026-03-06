@@ -21,20 +21,16 @@
 	</head>
 	<body>
 		<?php require "include.php";?>
-		<form method=POST name=fo action=buy.php style="border:solid 10px skyblue; border-radius:90px;">
+		<form method=POST name=fo action=buy.php style="border:solid 10px skyblue; border-radius:1.5rem;border-bottom:none">
 			<div class=liste style=display:inline-block><br><br>
 				<center>
 					<?php
 						$sql = "SELECT * FROM produit WHERE ID=".$_GET["vp"];
-						$sql2= "SELECT MAX(IDV) FROM vente";
 						$result = $conn->query($sql);
-						$vente= $conn->query($sql2);
-						$rrr=$vente->fetch_row();
-						echo "<input type=hidden name=numvent value='".$rrr[0]."'>";
 						if ($result->num_rows > 0) {
 							while($row = $result->fetch_assoc()) {
 								echo "<input type=hidden name=AQTE value='".$row['QTE']."'>
-								<div class=elem style=display:inline-table><img class=vu src='prod/".$row["IMG"]."' style='height:50%; border-radius:20px;'><h2>".$row["NOM"]."</h2><h1 style=color:blue;><b><span>".$row["PRIX"]." FCFA</span></b></div><div class=elem style=display:inline-block><table border=2 style='border-collapse:collapse; padding:10px'>
+									<div class='elem image-cover' style=display:inline-block><img class=vu src='prod/".$row["IMG"]."' style='height:50%; border-radius:20px;'><h2>".$row["NOM"]."</h2><h1 style=color:blue;><b><span>".$row["PRIX"]." FCFA</span></b></div><div class=elem style=display:inline-block><table border=2 style='border-collapse:collapse; padding:10px'>
 									<tr><td colspan=2 style=text-align:center><b>Spécifications</b></td></tr>
 									<tr><td>Marque</td><td>".$row['MARQ']."</td></tr>
 									<tr><td>Modèle</td><td>".$row['Modele']."</td></tr>

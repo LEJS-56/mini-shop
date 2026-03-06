@@ -17,10 +17,11 @@
 							$result2 = $conn->query($sql2);
 							if ($result2->num_rows > 0) {
 								while($row2 = $result2->fetch_assoc()) {
+									// Ici il y a un tas de variable dans des input qui sont hyper inutiles mais flemme de les effacer
 									echo"<input type=hidden value='".$row['idprod']."' name=prodid><input type=hidden name=liid value='".$row['idliv']."'> <input type=hidden name=livrai value='".$row['idliv']."'>
 									<input type=hidden name=prodna value='".$row2['NOM']."'><input type=hidden name=prodcol value='".$row2['Couleur']."'><input type=hidden name=prodmod value='".$row2['Modele']."'><input type=hidden name=prodincl value='".$row2['Composant_inclus']."'>
 									<input type=hidden name=prix value='".$row2['PRIX']."'><input type=hidden name=date value='".$row['datedeb']."'><input type=hidden name=garan value='".$row2['Garantie']."'>
-										<tr class=table-body><td>".$user['NOMC']."</td><td>".$row2['NOM']."</td><td><b>".$row2['PRIX']." FCFA</b></td><td>".$row['datedeb']."</td>";
+										<tr><td>".$user['NOMC']."</td><td><img style=height:8.5rem src='prod/".$row2["IMG"]."'><br>".$row2['NOM']."</td><td><b>".$row2['PRIX']." FCFA</b></td><td>".$row['datedeb']."</td>";
 										if ($row['datefin']==NULL)
 										{
 											echo "<td style='color:red'>Achat non éffectué</td>";
@@ -28,7 +29,7 @@
 											if($row['datefin']=="0000-00-00"){
 												echo "<td style='color:gray'>Livraison en cours</td>";
 											}else{
-												echo "<td>".$row['DATEL']."</td>";
+												echo "<td>".$row['datefin']."</td>";
 											}
 										}
 										if ($row['datefin']==NULL)
@@ -36,7 +37,7 @@
 											echo "<td><button value=".$row['idliv']." name=dela style='block; border:none; background:none; cursor:pointer; color:skyblue;'>Annuler l'achat</button></td></tr>";
 										}else{
 											if($row['datefin']=="0000-00-00"){
-												echo "<td><button name=convers style=margin:0 value=".$row['idliv'].">Conversation</button> <br> <button name=efc value='".$row['idliv']."'>commande effectuée</button</td></tr>";
+												echo "<td><button name=convers style=margin:0 value=".$row['idliv']."><a name=convers href='convers.php?convers=".$row['idlivr']."'>Conversation</a></button> <br> <button name=efc value='".$row['idliv']."'>valider la commande</button</td></tr>";
 												echo "<script>alert('votre Livraison est en cours, veuillez rester au lieux de rencontre prévu à cet effet')</script>";
 												break;
 											}else{

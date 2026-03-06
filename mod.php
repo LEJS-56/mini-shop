@@ -31,6 +31,7 @@ if(isset($_GET['mod'])){
 		
 		<form method=POST action=m.php>
 			<div class=formd>
+				<center><h1>Modification du produit</h1></center>
 				<table align=center>
 					<?php
 					//~ include("m.php"); 
@@ -52,9 +53,10 @@ if(isset($_GET['mod'])){
 					<tr><td>Connectivité</td><td><input type=text value='".$val['Connectivite']."' placeholder='4G, 3G ...' name=connec required></td></tr>
 					<tr><td>Réseau</td><td><input type=text placeholder='Wifi précisement' value='".$val['Technologie_connect']."' name=res required></td></tr>
 					<tr><td>Nombre d'utilisateurs</td><td><input type=text value='".$val['NbUser']."' placeholder='Nombre maximal d'utilisateurs simultanées' name=nbu required></td></tr>
-					<tr><td>Bande passante</td><td><input type=text value='".$val['Dispositif_compa']."' placeholder='Équipenment avec lequel il peut communiquer' name=compa></td></tr>
-					<tr><td>Usage recommandé</td><td><input type=checkbox name=usage>Gaming  <input type=checkbox name=usage>Streaming Lourd (4K)  <input type=checkbox name=usage>Réseaux sociaux  <input type=checkbox name=usage>IPTV  <br><input type=checkbox name=usage>Petits ménages  <input type=checkbox name=usage>Home Bureaux  <input type=checkbox name=usage>Grands ménages  <input type=checkbox name=usage>Large ménage</td></tr>
-					<tr><td>Démarquements</td><td><input value='".$val['Demarquement']."' type=text placeholder='Ce qui fait la force du produit' name=demarq></td></tr>
+					<tr><td>Bande passante</td><td><input type=text value='".$val['Dispositif_compa']."' placeholder='Veuiller Préciser l'unité' name=compa></td></tr>
+					".//On vera ça un jours
+					// <tr><td>Usage recommandé</td><td><input type=checkbox name=usage>Gaming  <input type=checkbox name=usage>Streaming Lourd (4K)  <input type=checkbox name=usage>Réseaux sociaux  <input type=checkbox name=usage>IPTV  <br><input type=checkbox name=usage>Petits ménages  <input type=checkbox name=usage>Home Bureaux  <input type=checkbox name=usage>Grands ménages  <input type=checkbox name=usage>Large ménage</td></tr>
+					"<tr><td>Démarquements</td><td><input value='".$val['Demarquement']."' type=text placeholder='Ce qui fait la force du produit' name=demarq></td></tr>
 					<tr><td>Caractéristiques requises</td><td><input value='".$val['Caracteristiques_requises']."' type=text placeholder='spécifications particulière' name=req></td></tr>
 					<tr><td>Composants inclus</td><td><input type='text' value='".$val['Composant_inclus']."' placeholder='Liste des composants supplémentaire obtunues à lachat du produit' name=compo></td></tr>
 					<tr><td>Connectiques</td><td><input type=text value='".$val['Conectiques']."' placeholder='Liste de connectiqes du produit' name=connecti></td></tr>
@@ -68,8 +70,8 @@ if(isset($_GET['mod'])){
 </html>
 <?php
 }
-$d=$_GET['del'];
 if (isset($_GET['del'])){
+	$d=$_GET['del'];
 	include("includea.php");
 	$sql = "DELETE FROM `produit` WHERE `produit`.`ID` = ".$d;
 	if ($conn->query($sql) === TRUE) {
@@ -79,9 +81,10 @@ if (isset($_GET['del'])){
 	}
 	$conn->close();
 	include_once("charge.html");
-	 echo "<script>setTimeout(()=>{
+	header("refresh:1;admin.php");
+	/* echo "<script>setTimeout(()=>{
  history.back();
 },1500);
-</script>";
-}
+</script>";*/
+} 
 ?>

@@ -29,6 +29,7 @@ if (isset($_POST['cachat'])){
 	exit();
 }
 
+// Fonction inutile daut l'effacer mais j'ai la flemme
 function fuck(){
 	echo "<script>alert('".$_POST['del']."')</script>";
 }
