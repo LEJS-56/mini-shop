@@ -1,7 +1,16 @@
 <html>
 	<head><title>Admin</title><link rel="stylesheet" href="style.css"></head>
 	<body>
-		<?php include_once("headera.php"); session_start(); unset($_SESSION["ADMIN"]); ?>
+		<?php 
+    require "con.php";
+	require "headera.php";
+	require "footer.php";
+	$_SESSION["ADMIN"]="NOP";
+	if(session_status() === PHP_SESSION_ACTIVE){
+        unset($_SESSION["ADMIN"]); 
+		session_destroy();
+    }
+	?>
 		<center style=margin-top:200px>
 			<h1>Entrez le mot de passe administrateur</h1>
 			<form method=POST>
@@ -12,6 +21,7 @@
 			 if($_POST['activer']){
 				 if($_POST['admpass'] == "123"){
 					 $_SESSION["ADMIN"]="OK";
+                     $_POST['admpass'] = "1";
 					 header("refresh:1;admin.php");
 				 }else{
 					 echo "Entrez le mot de passe administrateur";

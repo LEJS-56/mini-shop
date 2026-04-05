@@ -7,7 +7,7 @@
 			b=fo.cpwd.value;
 			function confi(){
 				if (a.length<8){
-					alert("ERRR");
+					alert("Le mot de passe doit avoir au moins 8 caractères");
 				}
 			}
 		</script>
@@ -47,7 +47,7 @@
 				<div class="ligne">
 					<div class="entree">
 						<label>Sexe</label>
-						<div class=entreer><div><input type="radio" name=sx value=H required>Homme</div> <div><input type="radio" name=sx value=F required>Femme</div></div>
+						<div class=entreer><div><input type="radio" name=sx value=M required>Homme</div> <div><input type="radio" name=sx value=F required>Femme</div></div>
 					</div>
 				</div>
 				<div class="ligne">
@@ -59,7 +59,7 @@
 -->
 					<div class="entree">
 						<label>Date de naissance</label>
-						<input type=date name=dat>
+						<input type=date name=dat required>
 					</div>
 				</div>
 			</div>

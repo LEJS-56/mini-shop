@@ -24,6 +24,8 @@
         <tr><td><h2>Suivie des stocks</h2></td> <td></td></tr>
         <tr><td><h2>Partage de fichiers</h2></td> <td>Intégrer le partage de fichiers dans la conversation</td></tr>
         <tr><td><h2>Système de verrification</h2></td> <td>Veerifier l'exixtance d'un numero dans la BD lors de la verrification<br> Ajouter un boutton mot de passe oublié <br> Verrifier toutes les entrées de données</td></tr>
+        <tr><td><h2>Liaison avec la base de donnée de Camtel</h2></td><td>Permettre aux utilisateurs ayan déjà achete une carte SIM Camtel de pouvoir se connecter avec leur numéro directement et juste créer un mot de passe eux même</td></tr>
+        <tr><td><h2>Édition de profil utilisateur</h2></td> <td>Ajouter un système permettant à l'utilisateur d'éditer son profil (photo de profil, Changer le mot de passe, modifier le nom utilisateur ...)</td></tr>
         <tr><td><h2></h2></td> <td></td></tr>
         <tr><td colspan=2><h1>Le meileur reste à venir</h1></td></tr>
     </table>

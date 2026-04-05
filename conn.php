@@ -4,7 +4,10 @@
 	$result = $conn->query($log);
 	$user = $result->fetch_assoc();
 	if($user){
-		if($_POST['mp']==$user['MP'] && $_POST['tel']==$user['TEL']){
+        include_once("charge.html");
+        $pass = $_POST['mp'];
+        $hpass = $user['MP'];
+		if(password_verify($_POST['mp'],$user['MP']) && $_POST['tel']==$user['TEL']){
 			session_start();
 			$_SESSION["ID"] = $user['IDC'];
 			header("location:market.php");

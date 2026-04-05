@@ -10,9 +10,6 @@ if ($conn->query($sql) === TRUE && $conn->query($sql2) === TRUE) {
 }
 $conn->close();
 include_once("charge.html");
- echo "<script>setTimeout(()=>{
- history.back();
-},1500);
-</script>";
+header("refresh:0;mesa.php");
 //~ echo $sql2;
 ?>

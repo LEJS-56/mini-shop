@@ -132,7 +132,7 @@ if ($conn->query($sql) === TRUE) {
 }
 $conn->close();
 include_once("charge.html");
-header("refresh:1;ajouter.php");
+header("refresh:0;ajouter.php");
 /* echo "<script>setTimeout(()=>{
  history.back();
 },1500);

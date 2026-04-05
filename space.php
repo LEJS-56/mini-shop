@@ -1,1 +1,1 @@
-<div class="spacerb" style="height:160vh;"></div>
+<div class="spacerb"></div>

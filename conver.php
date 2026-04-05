@@ -1,6 +1,8 @@
 <?php
 $date=date('Y-m-d');
-include("include.php");
+require "con.php";
+require "header.php";
+require "footer.php";
 if (isset($_POST['liva'])){
 	$sql="UPDATE `livraison` SET `datefin` = '0000-00-00',idlivr=".$_POST['lid']." WHERE `livraison`.`idliv` = ".$_POST['liva'];
     if ($conn->query($sql) === TRUE) {
@@ -43,13 +45,16 @@ if (isset($_POST['livd'])){
 </script>";*/
 }
 if(isset($_POST['convers'])){
-	$direct = "refresh:1;convers.php?convers=".$_POST['convers'];
+	$direct = "refresh:0;convers.php?convers=".$_POST['convers'];
 	header($direct);
     ?>
 <html>
-	<head><title>Mesage</title></head>
-	<body>
-		
+	<head>
+        <title>Mesage</title>
+    </head>
+	<body style="padding-bottom:0">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" integrity="sha512-OQDNdI5rpnZ0BRhhJc+btbbtnxaj+LdQFeh0V9/igiEPDiWE2fG+ZsXl0JEH+bjXKPJ3zcXqNyP4/F/NegVdZg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 		<table class=conver align=center style="display:flex; justify-content:center; max-height:50vh; overflow:auto">
 			<?php
 			if ($_SESSION['ID']){
@@ -63,18 +68,21 @@ if(isset($_POST['convers'])){
 							echo "<tr style='text-align:left;'><td><p style='border:solid 2px skyblue; padding:10px; border-radius:30px 30px 30px 0;'>(Vous): <br>".$row['Cont']."</p><br></td></tr>";
 					}
 					}
-				}else{
+				}
+                else{
 					echo "<center><h1>Aucun Méssage pour le moment</h1></center>";
-				}		
+				}
+                echo "<form method=POST action=env.php><tr class=hide style='position: fixed;bottom: 65;'><td>
+                <textarea required style='width:400px;min-height:100px;' name=msg></textarea></td><td><input type=submit name=envoi value=envoyer style='height:100%;border-radius:99px;width:100%;background-color:#0026FF;color:white;'>
+                </td></tr></form>";
 			}else{
 				echo "<center><b><h1 style='color:red; display:flex; justify-content:center;'>Veuillez vous connecter</h1></b></center><style>textarea{display:none;}</style>";
 			}
 			?>
 		</table>
-		<form method=POST action=envo.php style="position:absolute;bottom:0;width:100%">
-		<?php echo "<input type=hidden name=recep value=".$_GET['convers'].">"; ?>	
-        <textarea placeholder="Votre message" required style="width:100%;min-height:100px;text-align:center" name=msg></textarea><br><?php if($_SESSION['ID']){?><input type=submit name=envoi value=envoyer style="border-radius:99px;width:100%;height:30px;background-color:#0026FF;color:white;"><?php }else{ ?><b><a href=connexion.php style="border-radius:99px;width:100%;height:30px;background-color:#0026FF;color:white;text-align:center;justify-content:center;align-items:center;">Connectez-vous</a></b><?php }?>
-		</form>
+		<form method=POST class=hidea action=env.php style="position:absolute;bottom:0;left:30%;">
+			<textarea required style="text-align:center;width:400px;min-height:100px;" name=msg></textarea><br><?php if($_SESSION['ID']){?><input type=submit name=envoi value=envoyer style="border-radius:99px;width:100%;background-color:#0026FF;color:white;"><?php }else{ ?><b><a href=connexion.php style="border-radius:99px;width:100%;height:30px;background-color:#0026FF;color:white;text-align:center;justify-content:center;align-items:center;">Connectez-vous</a></b><?php }?>
+        </form>
 	</body>
 </html>
 <?php
@@ -83,7 +91,6 @@ if (isset($_POST['dela'])){
 	$Nqte=$_POST['prodqte']+1;
 	$sql3 = "DELETE FROM `livraison` WHERE `livraison`.`idliv` = ".$_POST['liid']." ";
 	$sql2="UPDATE `produit` SET `QTE` = '".$Nqte."' WHERE `produit`.`ID` = ".$_POST['prodid'];
-
 	if ($conn->query($sql2) === TRUE) {
 	  echo "OK";
 	} else {
@@ -96,12 +103,11 @@ if (isset($_POST['dela'])){
 	}
 	$conn->close();
 	include_once("charge.html");
-	header("refresh:1;panier.php");
+	header("refresh:0;panier.php");
 	/*echo "<script>setTimeout(()=>{
  history.back();
 },1500);
 </script>";*/
-	exit();
 }
 if(isset($_POST['efc'])){
 $sql="UPDATE `livraison` SET `datefin` = '".$date."' WHERE `livraison`.`idliv` = ".$_POST['efc'];
@@ -114,7 +120,7 @@ echo $sql2;
 	$conn->close();
 	include_once("charge.html");
 	// echo "<cript>alert('".$sql."')</script>";
-	header("refresh:1;liv.php");
+	header("refresh:0;panier.php");
     /* echo "<script>setTimeout(()=>{
  history.back();
 },1500);
@@ -128,10 +134,12 @@ if(isset($_POST['fac'])){
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Facture</title>
+        
 	</head>
 	<body>
 		<link rel="stylesheet" href="tables.css">
-		<table align=center style="display:flex; justify-content:center; text-align:center;">
+        <link rel="stylesheet" href="facture.css">
+		<table name=tabl align=center style="display:flex; justify-content:center; text-align:center;background-color:white">
 			<tr><td></td><td></td><td>Facture N⁰ <span style=color:red><?php echo $_POST['liid']; ?></span></td></tr>
 			<tr><td colspan=3>MONSIEUR <?php echo $user['NOMC']." ".$user['PRENOM']; ?></td></tr>
 			<tr class=tab><td style="padding:10px 56px 10px 56px;">Designation</td><td style="padding:10px 56px 10px 56px;">Prix</td><td style="padding:10px 56px 10px 56px;">date</td></tr>
@@ -141,8 +149,12 @@ if(isset($_POST['fac'])){
 			<tr class=table-body><td style="padding:10px 56px 10px 56px;">Composant inclus <?php echo $_POST['prodna']; ?></td><td></td><td></td></tr>
 			<tr class=table-body><td style="padding:10px 56px 10px 56px;">Garantie <?php echo $_POST['garan']; ?> (semaine)</td><td></td><td></td></tr>
 			<tr class=table-body><td colspan=3 >Les Composants supplémentaire ne sont pas couverts par la garantie <br> et nous ne sommes responsable d'aucun dommage <br> causé par le client sur l'Équipenment</td></tr>
-			<tr class=table-body style=color:gray><td style="background-color:skyblue;padding:20px 56px 20px 56px;">Signature (client)</td><td colspan=2>Signature (Vendeur)</td></tr>
+			<tr class=table-body style=color:gray><td style="background-color:skyblue;padding:20px 56px 20px 56px;">Signature (client)</td><td colspan=2><img style=height:20vh src=sign.png></td></tr>
 		</table>
+        <center><input style="border:none; background:none;cursor:pointer; text-decoration:underline" type=button value="Imprimer/sauvegarder" name=but onclick=window.print()></center>
+        <script>
+           
+        </script>
 	</body>
 	</html>
 

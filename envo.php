@@ -9,14 +9,12 @@ if (($conn->query($sql)) === TRUE && ($conn->query($sql2) === TRUE)) {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
 $conn->close();
-// if ($user['Livreur']==1){
-// 		header("refresh:0;liv.php");		
-// 	}else{
-// 		header("refresh:0;panier.php");
-// 	}
 include_once("charge.html");
-echo "<script>setTimeout(()=>{
- history.back();
-},1500);
-</script>";
+if ($user['Livreur']==1){
+ 		header("refresh:0;liv.php");		
+ 	}else{
+ 		header("refresh:0;panier.php");
+ 	}
+include_once("charge.html");
+
 ?>

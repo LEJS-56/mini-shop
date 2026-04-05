@@ -27,9 +27,9 @@ if(isset($_GET['mod'])){
 		</style>
 	</head>
 	<body>
-		<?php require "includea.php";?>
+		<?php require_once "includea.php";?>
 		
-		<form method=POST action=m.php>
+		<form method=POST action=m.php enctype="multipart/form-data">
 			<div class=formd>
 				<center><h1>Modification du produit</h1></center>
 				<table align=center>
@@ -73,7 +73,7 @@ if(isset($_GET['mod'])){
 }
 if (isset($_GET['del'])){
 	$d=$_GET['del'];
-	include("includea.php");
+	require_once "includea.php";
 	$sql = "DELETE FROM `produit` WHERE `produit`.`ID` = ".$d;
 	if ($conn->query($sql) === TRUE) {
 	  echo "<script>alert('SUPPRESSION EFFECTUÉ AVEC SUCCÈS')</script>";
@@ -82,7 +82,7 @@ if (isset($_GET['del'])){
 	}
 	$conn->close();
 	include_once("charge.html");
-	header("refresh:1;admin.php");
+	header("refresh:0;admin.php");
 	/* echo "<script>setTimeout(()=>{
  history.back();
 },1500);

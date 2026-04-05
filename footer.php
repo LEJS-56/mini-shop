@@ -1,5 +1,6 @@
 <footer>
 	<p style="top:-100px;position:absolute">Copyright &copy; 2024-2025 | SONNE ELABA Joseph Luciano</p><br>
+    L'image en arrière plan: <a href="http://www.freepik.com">Designed by macrovector_official / Freepik</a>
 	<nav class="menu-bas">
 		<ul>
 			<li><a href="index.php"><i class="ri-menu-line"></i></a></li>

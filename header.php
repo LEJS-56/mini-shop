@@ -1,6 +1,6 @@
 <header>
 	<div class=logo>
-		<h1><span>BLUE </span>Market</h1>
+		<h1><span>B<a href=devlog.php style=text-decoration:none;cursor:initial>L</a>UE </span>Market</h1>
 	</div>
 	<div class=compte>
 		<?php

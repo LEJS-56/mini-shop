@@ -1,7 +1,7 @@
 <?php 
+require "con.php";
 require "headera.php";
 require "footer.php";
-require "con.php";
 session_start();
 if($_SESSION["ADMIN"]!="OK"){
 	header("refresh:0;adm.php");

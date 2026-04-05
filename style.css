@@ -5,6 +5,7 @@
 	--cc:#666666;
 	--cd:#ffffff5b;
 	--ce: #fff;
+    --cf: #0047e1;
 }
 @keyframes clign{
 	0%{opacity:1;}
@@ -18,7 +19,7 @@ Style des inputs
 */
 input,textarea{
     border:none;
-    border-bottom: solid 2px var(--ca);
+    border-bottom: solid 2px var(--cf);
     margin-top:1.6rem;
     border-radius: 1.4rem;
 }
@@ -39,8 +40,11 @@ html{
 html, body {
   height: 100%;
   margin: 0;
+  background: #0026FF;
+  background-image: url("3920.jpg");
   padding: 0;
 }
+
 ::-webkit-scrollbar{
 		width: 8px;
 }
@@ -119,7 +123,6 @@ Corps du site: Session Accueil
 */
 
 #Accueil{
-	padding:0 10%;
 	min-height:70vh;
 	display:flex;
 	align-items:center;
@@ -169,6 +172,7 @@ a img{
 	width:40%;
 	height:350px;
 }
+
 .desc .droite img{
 	width:100%;
 	height:100%;
@@ -182,7 +186,7 @@ Corps du site: Session Statistiques
 */
 
 .info-statistiques{
-	background-color:#0026FF;
+	background-color:var(--ce);
 	display:flex;
 	flex-wrap:wrap;
 	align-items:center;
@@ -193,7 +197,7 @@ Corps du site: Session Statistiques
 	text-align:center;
 }
 .info-statistiques .box p{
-	color:#fff;
+	color:var(--bg);
 	font-size:12px;
 }
 .info-statistiques .box h1{
@@ -207,13 +211,13 @@ Corps du site: Session Statistiques
 	display:flex;
 	align-items:center;
 	justify-content:space-between;
-	padding:50px 10%;
+	padding-top:50px;
 }
 #APropos .gauche{
 	width:50%;
 }
 #APropos .gauche img{
-	height:350px;
+	height:100%;
 	width:100%;
 	object-fit:cover;
 	border-radius:20px;
@@ -348,9 +352,12 @@ page des produits
 	flex-wrap: wrap;
 }
 .produits .liste .produit{
-	text-align:center;
-	height:45%;
-	margin:10px;
+	text-align: center;
+  	height: 60vh;
+  	background-color: var(--ce);
+  	border-radius: 1.4rem;
+  	margin-bottom: 10vh;
+  	width: 60vh;
 }
 a:hover{
 	color:skyblue;
@@ -367,7 +374,7 @@ a:hover{
 }
 
 .vu{
-	height:100%;
+	height:70%;
 }
 .image-cover{
 	vertical-align:top;
@@ -392,10 +399,13 @@ a:hover{
 }
 .produits .liste .produit button{
 	background-color:#0026FF;
-	border-radius:20px;
+	border-radius:1.7rem;
 	margin-top:3px;
+    margin-right: 2rem;
+    padding: 0 05rem !important;
 	color:#fff;
 	padding:5px;
+    border: solid 2px var(--bg);
 }
 
 
@@ -403,7 +413,11 @@ a:hover{
 	background-color:var(--bg);
 	color:var(--ca);
 }
-.produit button::before{
+.button:hover{
+	background-color:var(--bg);
+	color:var(--ca);
+}
+.produits .liste .produit button::before{
 	content:"";
 	bottom: 0;
 	left: -2;
@@ -446,11 +460,41 @@ a:hover{
 .menu-bas{
 	display:none;
 }
+.hide{
+    display: none;
+}
 /*
 Responsivit�
 */
 @media (max-width:1000px){
-  
+    .info-statistiques{
+        padding: 0;
+    }
+    button{
+        max-width: max-content;
+    }
+ 	 .hidea{
+  	      display: none;
+  	  }
+ 	   .hide{
+ 	       display: flex;
+  	  }
+    .desc .droite img{
+		width: 100%;
+	}
+    
+    
+  /* Espace en bas des pages */
+    body{
+        padding-bottom: 7200px;
+    }
+    
+    .desc{
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    
 	/* Menu de pied de page */
 .menu-bas{
     display:initial;
@@ -476,6 +520,10 @@ Responsivit�
 .menu-bas i{
 	font-size: 6vh;
 }
+    .spacerb{
+        height: 1000px;
+        width:100%;
+    }
 
 
 	header{
@@ -509,11 +557,32 @@ Responsivit�
 	}
 
 }
+
+.elem{
+    margin: 1vh;
+
+}
 /*
 Responsivité : liste de produits
 */
 @media(max-width:1000px){
-
+    .conver{
+        overflow: auto;
+    }
+    *{
+        font-size: clamp(1.3rem,1.8rem,2rem) !important;
+    }
+    #Accueil div{
+        width: 100%;
+        justify-content: center;
+    }
+    #APropos div{
+        width: 100%;
+        text-align: center;
+    }
+    #APropos div button{
+        width: max-content;
+    }
 	.footer-button{
 		display: none;
 	}
@@ -627,16 +696,15 @@ form a{
 	color: white;
 	text-decoration:none;
 }
-form a:hover{
+form a:hover,form a:active{
 	text-decoration:underline;
-	color:var(--ca);
+	color:var(--cb);
 }
 .con-op input{
 	margin-inline-end: 4px;
 	accent-color:var(--ca);
 }
 button{
-	width: 100%;
 	height:48px;
 	padding: 8px 16px;
 	/* border-radius:50px; */

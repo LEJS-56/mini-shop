@@ -2,7 +2,7 @@
  //~ mysqli procedural Test (C'est un échec)
  session_start();
  
- $server="sql300.infinityfree.com ";
+ $server="sql300.infinityfree.com";
  $usernam="if0_40883908";
  $password = "uXnbDFugQjy";
  $dbname = "if0_40883908_shop";
@@ -15,6 +15,10 @@
  $date = date('Y-m-d');
  $prodid = $_POST['vp'];
  $lieu=$_POST['lieuliv'];
+if (empty($lieu)){
+   echo "<center><h1 style=font-size:4rem;color:red> Veuillez bien indiquer le lieu de la livraison </h1> </center>";
+    header ("refresh:2;ac.php?vp=$prodid");
+}else{
  $ses = $_SESSION['ID'];
  $nqte=$_POST['AQTE']-1;
  $sql2= "UPDATE `produit` SET `QTE` = '".$nqte."' WHERE `produit`.`ID` = ".$prodid;
@@ -50,9 +54,7 @@
  }
  //~ Fermeture de la connection
  $conn = null;
- include_once("charge.html");
- echo "<script>setTimeout(()=>{
- history.back();
-},1500);
-</script>";
+header ("refresh:0;ac.php?vp=$prodid");
+}
+include_once("charge.html");
 ?>

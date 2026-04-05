@@ -9,7 +9,7 @@
 			<div class=tete>
 				<h1>Explorez nos produits et faites des achats</h1>
 			</div>
-			<form method=GET action=achats.php>
+			<form method=GET action=ac.php>
 				<div class=liste>
 					<?php
 						 	$sql = "SELECT * FROM produit";
@@ -21,9 +21,13 @@
 						 	  echo "
 						 	  <div class=produit>
 						 	  <img class=vu src='prod/".$row["IMG"]."'>
-						 	  <h4>".$row["NOM"]."</h4><span>".$row["PRIX"]." FCFA</span>
-						 	  <p>".$row["QTE"]." EN STOCK</p>
-						 	  <button name=vp value=".$row["ID"].">voir plus</button>
+						 	  <h4>".$row["NOM"]."</h4><span>".$row["PRIX"]." FCFA</span>";
+                                 if ($row["QTE"] == 0){
+                                     echo "<p style=color:red> Stock épuisé </p>";
+                                 }else{
+                                     echo "<p>".$row["QTE"]." EN STOCK</p>";
+                                 }
+						 	  echo "<button name=vp style='min-width:100%;min-height:10vh;margin-top: 3vh;' value=".$row["ID"].">voir plus</button>
 						 	  </div>";
 						 	  }
 						 }else {

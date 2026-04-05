@@ -10,7 +10,7 @@ if (($conn->query($sql)) === TRUE && ($conn->query($sql2) === TRUE)) {
 }
 $conn->close();
 include_once("charge.html");
-header("refresh:1;contact.php");
+header("refresh:0;contact.php");
 /* echo "<script>setTimeout(()=>{
  history.back();
 },1500);

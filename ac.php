@@ -19,9 +19,9 @@
 		</script>
 		<meta charset="utf-8">
 	</head>
-	<body>
+	<body style="padding-bottom: 0;">
 		<?php require "include.php";?>
-		<form method=POST name=fo action=buy.php style="border:solid 10px skyblue; border-radius:1.5rem;border-bottom:none">
+		<form method=POST name=fo action=buy.php><b>
 			<div class=liste style=display:inline-block><br><br>
 				<center>
 					<?php
@@ -30,7 +30,32 @@
 						if ($result->num_rows > 0) {
 							while($row = $result->fetch_assoc()) {
 								echo "<input type=hidden name=AQTE value='".$row['QTE']."'>
-									<div class='elem image-cover' style=display:inline-block><img class=vu src='prod/".$row["IMG"]."' style='height:50%; border-radius:20px;'><h2>".$row["NOM"]."</h2><h1 style=color:blue;><b><span>".$row["PRIX"]." FCFA</span></b></div><div class=elem style=display:inline-block><table border=2 style='border-collapse:collapse; padding:10px'>
+									<table><tr><td rowspan=2><div class='elem image-cover' ><img class=vu src='prod/".$row["IMG"]."' style='height: 60vh;border-radius: 20px;margin-right: 10vh;'><h2>".$row["NOM"]."</h2><h1><b><span>".$row["PRIX"]." FCFA</span></b></div></td><td class=hidea><div class=elem ><br><br></h1><h1><u>Description:</u></h1><span style=font-size:15px>".$row["Description"]."</span></div><br><br></td>";
+                                // Mec cherche pas trop à comprendre ce j'ai fait ici
+                                echo "</tr><tr><td class=hidea>";
+                                     if ($_SESSION['ID']){
+								if ($row['QTE']<1){
+									echo "<center><b><h1 style='color:red;'>Ce produit n'est pas disponible en stock</h1></b></center><br>";
+								}else{
+									echo "<br><br><input type=text name=lieuliv placeholder='Veuillez décrire le lieux de livraison avec exactitude' style='text-align:center;width:100%; height:50px'><br><br>
+									<button type=submit class=button name=vp value=".$row["ID"]." style='border:solid 2px #0a1428;padding:8px 20px; background-color:#0026FF; border-radius:99px; color:#fff;width: 100%;'>Commander</button>";
+								}
+							}else{
+						echo "<b><h1 style='color:red;'>Veuillez vous <a href=connexion.php style=text-decoration:underline> Connecter</a></h1></b>";
+							}
+                                echo "</td></tr><tr><td colspan=2 class=hide>";
+                                if ($_SESSION['ID']){
+								if ($row['QTE']<1){
+									echo "<center><b><h1 style='color:red;'>Ce produit n'est pas disponible en stock</h1></b></center><br>";
+								}else{
+									echo "<br><br><input type=text name=lieuliv placeholder='Veuillez décrire le lieux de livraison avec exactitude' style='text-align:center;width:100%; height:50px'><br><br>
+									<button type=submit class=button name=vp value=".$row["ID"]." style='border:solid 2px #0a1428;padding:8px 20px; background-color:#0026FF; border-radius:99px; color:#fff;margin-top:3vh'>Commander</button>";
+								}
+							}else{
+						echo "<b><h1 style='color:red;'>Veuillez vous <a href=connexion.php style=text-decoration:underline> Connecter</a></h1></b>";
+							}
+                                
+                                    echo "</td></tr><tr><td colspan=2 class=hide><div class=elem ><br><br></h1><h1><u>Description:</u></h1><span style=font-size:15px>".$row["Description"]."</span></div><br><br></td></tr></table><div class=elem ><table border=2 style='border-collapse:collapse; padding:10px'>
 									<tr><td colspan=2 style=text-align:center><b>Spécifications</b></td></tr>
 									<tr><td>Marque</td><td>".$row['MARQ']."</td></tr>
 									<tr><td>Modèle</td><td>".$row['Modele']."</td></tr>
@@ -49,18 +74,10 @@
 									<tr><td>Composant(s) inclus</td><td>".$row['Composant_inclus']."</td></tr>
 									<tr><td>Conectiques</td><td>".$row['Conectiques']."</td></tr>
 									<tr><td>réparabilité</td><td>".$row['reparabilite']."</td></tr>									
-								</table></div><div class=elem style=display:inline-block><br><br></h1><h1><u>Description:</u></h1><span style=font-size:15px>".$row["Description"]."</span></div><br><br><div class=elem style=display:inline-block><h1>À propos de ce produit</h1><span class=propos style=font-size:15px>".$row['Apropos']."</span></div><br><br><u style=text-align:center><h3>Entrez Votre numéro de télephone Avant L'achat ou la commande :</h3></u><br><br><input type=number value=".$user['TEL']." name=ntel style=text-align:center; required><br>";
+								</table></div>
+                                    <div class=elem><h1>À propos de ce produit</h1><span class=propos style=font-size:15px>".$row['Apropos']."</span></div><br><br><u style='text-align:center;display:none'><h3>Entrez Votre numéro de télephone Avant L'achat ou la commande :</h3></u><br><br><input type=hidden value=".$user['TEL']." name=ntel style=text-align:center; required><br>";
 							//~ <tr><td>Usage recommandé</td><td>".$row['Usages_recommandes']."</td></tr>
-							if ($_SESSION['ID']){
-								if ($row['QTE']<1){
-									echo "<center><b><h1 style='color:red;'>Ce produit n'est pas disponible en stock</h1></b></center><br>";
-								}else{
-									echo "<br><br><textarea name=lieuliv style='width:100%;text-align:center' placeholder='Veuillez décrire le Lieux de livraison avec exactitude' required></textarea><br><br>
-									<button type=submit name=vp value=".$row["ID"]." style='padding:8px 20px; background-color:#0026FF; border-radius:99px; color:#fff;'>Commander</button>";
-								}
-							}else{
-						echo "<center><b><h1 style='color:red;'>Veuillez vous connecter</h1></b></center>";
-					}
+							
 						}
 						}else{
 							echo "Aucune information disponible sur le produit";
@@ -69,6 +86,6 @@
 					<br><br>
 				</center>
 			</div>
-		</form>
+            </b></form>
     </body>
 </html>

@@ -3,7 +3,7 @@
 		<title>section Administration</title>
 		<meta charset="utf-8">
 	</head>
-	<body>
+	<body style=padding-bottom:600vh>
 		<?php require "includea.php";?>
 		<section class=produits>
 			<div class=tete>
@@ -26,7 +26,7 @@
 						 	  <img class=vu src='prod/".$row["IMG"]."' >
 						 	  <h4>".$row["NOM"]."</h4><span>".$row["PRIX"]." FCFA</span>
 						 	  <p>".$row["QTE"]." EN STOCK</p>
-						 	  <button value=".$row["ID"]." name=mod>modifier</button><button style='block; border:none; background:none; cursor:pointer; color:red;' name=del value=".$row["ID"].">supprimer</button>
+						 	  <button value=".$row["ID"]." name=mod>modifier</button><button style='block; border:none; background:red; cursor:pointer;' name=del value=".$row["ID"].">supprimer</button>
 						 	  </div>";
 						 	  }
 						 }else {

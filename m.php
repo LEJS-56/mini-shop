@@ -6,7 +6,7 @@ $nom=$_POST['np'];
  
  
  // Importation de l'image
- if (empty($_POST['img'])){
+ if (empty($_FILES['img']['tmp_name'])){
 	$img = $_POST['imageo'];
 }else{
 	 $fileTmpPath=$_FILES['img']['tmp_name'];
@@ -23,6 +23,11 @@ $nom=$_POST['np'];
 	 }else{
 		echo "Une erreur s'est produit lors de la mise en ligne du fichier";
 	 }
+     if (file_exists($_POST['imageo'])){
+         if(unlink($_POST['imageo'])){
+             echo "Ancien fichier supprimé";
+         }
+     }
  }
  
  
@@ -126,11 +131,7 @@ include_once("con.php");
 		echo "Error: " . $sql . "<br>" . $conn->error;
 	}
 include_once("charge.html");
-echo "<script>setTimeout(()=>{
- history.back();
-},1500);
-</script>";
-	//~ echo $sql;
+header("refresh:0;admin.php");
 $conn->close();
 
 ?>

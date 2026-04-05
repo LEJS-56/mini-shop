@@ -5,7 +5,7 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"/>
 		<link rel=stylesheet href=style.css>
 	</head>
-	<body class=body>
+	<body class=body style=padding:0>
 	<div class="logo conlogo">
 		<h1><span>BLUE </span>Market</h1>
 	</div>
