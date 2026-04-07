@@ -30,7 +30,7 @@
 						if ($result->num_rows > 0) {
 							while($row = $result->fetch_assoc()) {
 								echo "<input type=hidden name=AQTE value='".$row['QTE']."'>
-									<table><tr><td rowspan=2><div class='elem image-cover' ><img class=vu src='prod/".$row["IMG"]."' style='height: 60vh;border-radius: 20px;margin-right: 10vh;'><h2>".$row["NOM"]."</h2><h1><b><span>".$row["PRIX"]." FCFA</span></b></div></td><td class=hidea><div class=elem ><br><br></h1><h1><u>Description:</u></h1><span style=font-size:15px>".$row["Description"]."</span></div><br><br></td>";
+									<table><tr><td rowspan=2><div class='elem image-cover' ><img class=vu src='prod/".$row["IMG"]."' style='height: 60vh;border-radius: 20px;margin-right: 10vh;'><h2>".$row["NOM"]."</h2><h1><b><span>".$row["PRIX"]." FCFA</span></b></div></td><td class=hidea><div class=elem style='border-radius: 1.7rem;'><br><br></h1><h1><u>Description:</u></h1><span style=font-size:15px>".$row["Description"]."</span></div><br><br></td>";
                                 // Mec cherche pas trop à comprendre ce j'ai fait ici
                                 echo "</tr><tr><td class=hidea>";
                                      if ($_SESSION['ID']){
